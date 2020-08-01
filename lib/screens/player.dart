@@ -26,31 +26,23 @@ class _ChewieDemoState extends State<Player> {
   initializePlayerController() async {
     await _videoPlayerController.initialize();
     await _videoPlayerController.play();
+    await SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+    await SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
 
     setState(() {
       _chewieController = ChewieController(
         videoPlayerController: _videoPlayerController,
         autoPlay: true,
         aspectRatio: _videoPlayerController.value.aspectRatio,
-        allowFullScreen: true,
         allowedScreenSleep: false,
-        deviceOrientationsAfterFullScreen: [
-          DeviceOrientation.portraitUp,
-          DeviceOrientation.portraitDown,
-          DeviceOrientation.landscapeLeft,
-          DeviceOrientation.landscapeRight
-        ],
+        allowFullScreen: true,
         fullScreenByDefault: true,
-        systemOverlaysAfterFullScreen: [
-          SystemUiOverlay.bottom,
-          SystemUiOverlay.top
-        ],
         placeholder: Container(
           color: Colors.black,
         ),
         autoInitialize: true,
       );
-
       _chewieController.enterFullScreen();
     });
   }
@@ -68,6 +60,15 @@ class _ChewieDemoState extends State<Player> {
   void dispose() {
     _videoPlayerController.dispose();
     _chewieController.dispose();
+
+    SystemChrome.setEnabledSystemUIOverlays(
+        [SystemUiOverlay.bottom, SystemUiOverlay.top]);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown
+    ]);
 
     super.dispose();
   }

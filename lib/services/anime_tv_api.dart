@@ -35,13 +35,13 @@ class AnimeTvApi {
     final response = await http.get("$_baseUrl?episodios=$episodeId",
         headers: AnimeTvApi.httpHeaders);
 
-    final data = json.decode(response.body);
+    final data = json.decode(response.body.substring(3));
 
-    String urlHd = data["locationsd"] ?? "";
+    String urlHd = data[0]["locationsd"] ?? "";
 
     VideoData videoData = VideoData(
         episodeId: episodeId,
-        url: data["location"],
+        url: data[0]["location"],
         urlHd: urlHd.length > 5 ? urlHd : null);
 
     return videoData;

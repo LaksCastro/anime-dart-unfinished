@@ -4,7 +4,7 @@ import "package:anime_dart/get_it.dart";
 
 import 'package:anime_dart/constants/tabs.dart';
 
-import 'package:anime_dart/store/latest_controller.dart';
+import 'package:anime_dart/store/barrel.dart';
 
 import 'package:outline_material_icons/outline_material_icons.dart';
 
@@ -22,7 +22,9 @@ class AnimeDartApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          Provider<LatestController>(create: (_) => getIt<LatestController>())
+          Provider<LatestController>(create: (_) => getIt<LatestController>()),
+          Provider<WatchEpisodeController>(
+              create: (_) => getIt<WatchEpisodeController>())
         ],
         child: MaterialApp(
           title: 'Anime Dart',

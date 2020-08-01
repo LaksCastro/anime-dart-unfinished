@@ -3,27 +3,29 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class ChewieDemo extends StatefulWidget {
-  ChewieDemo({this.title = 'Chewie Demo'});
-
+class Player extends StatefulWidget {
+  final String url;
   final String title;
+
+  Player({this.title = 'Chewie Demo', this.url});
 
   @override
   State<StatefulWidget> createState() {
-    return _ChewieDemoState();
+    return _ChewieDemoState(url: url);
   }
 }
 
-class _ChewieDemoState extends State<ChewieDemo> {
-  TargetPlatform _platform;
+class _ChewieDemoState extends State<Player> {
   VideoPlayerController _videoPlayerController1;
   ChewieController _chewieController;
+  final String url;
+
+  _ChewieDemoState({this.url});
 
   @override
   void initState() {
     super.initState();
-    _videoPlayerController1 = VideoPlayerController.network(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4');
+    _videoPlayerController1 = VideoPlayerController.network(url);
 
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController1,

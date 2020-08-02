@@ -34,7 +34,7 @@ class _WatchButtonsState extends State<WatchButtons> {
                     onTap: () {},
                     label: "Esse episódio não está disponível em HD"))
                 : (RippleButton(
-                    color: AppTheme.primaryColor,
+                    color: Theme.of(context).colorScheme.secondary,
                     onTap: () {
                       if (watchEpisodeController.videoUrlHd == null) {
                         return;
@@ -46,7 +46,7 @@ class _WatchButtonsState extends State<WatchButtons> {
                     },
                     label: "Assistir em HD")),
             RippleButton(
-                color: Colors.blue[600],
+                color: Theme.of(context).colorScheme.secondaryVariant,
                 onTap: () {
                   if (watchEpisodeController.videoUrl == null) {
                     return;

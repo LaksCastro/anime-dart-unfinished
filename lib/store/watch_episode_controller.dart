@@ -26,6 +26,9 @@ abstract class _WatchEpisodeControllerBase with Store {
   @observable
   String videoUrl;
 
+  @observable
+  String animeId;
+
   @computed
   bool get episodeInfoLoaded =>
       label != null && imageUrl != null && episodeId != null;
@@ -37,10 +40,12 @@ abstract class _WatchEpisodeControllerBase with Store {
   setEpisodeInfo(
       {@required String labelValue,
       @required String imageUrlValue,
-      @required String episodeIdValue}) {
+      @required String episodeIdValue,
+      @required String animeIdValue}) {
     label = labelValue;
     imageUrl = imageUrlValue;
     episodeId = episodeIdValue;
+    animeId = animeIdValue;
   }
 
   @action
@@ -62,6 +67,7 @@ abstract class _WatchEpisodeControllerBase with Store {
     label = null;
     imageUrl = null;
     episodeId = null;
+    animeId = null;
 
     videoUrlHd = null;
     videoUrl = null;

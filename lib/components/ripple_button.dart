@@ -26,7 +26,8 @@ class RippleButton extends StatelessWidget {
                       child: Text(label,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.white))),
+                              color:
+                                  Theme.of(context).colorScheme.onSecondary))),
                 ),
                 color: Colors.transparent,
               ),

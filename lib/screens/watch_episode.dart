@@ -1,8 +1,10 @@
 import 'package:anime_dart/get_it.dart';
+import 'package:anime_dart/models/anime_details_args.dart';
+import 'package:anime_dart/screens/anime_details.dart';
 import 'package:anime_dart/store/watch_episode_controller.dart';
 import 'package:flutter/material.dart';
 
-import "package:anime_dart/models/barrel.dart";
+import "package:anime_dart/models/watch_episode_args.dart";
 import "package:anime_dart/components/barrel.dart";
 
 class WatchEpisode extends StatefulWidget {
@@ -22,6 +24,7 @@ class _WatchEpisodeState extends State<WatchEpisode> {
   @override
   void initState() {
     watchEpisodeController.setEpisodeInfo(
+        animeIdValue: args.animeId,
         labelValue: args.label,
         imageUrlValue: args.imageUrl,
         episodeIdValue: args.episodeId);
@@ -55,6 +58,19 @@ class _WatchEpisodeState extends State<WatchEpisode> {
               ),
             ),
           ),
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (_) => AnimeDetails(
+                        args: AnimeDetailsArgs(
+                            animeId: watchEpisodeController.animeId,
+                            title: watchEpisodeController.label))));
+          },
+          label: Text('Ver lista de episódios'),
+          icon: Icon(Icons.playlist_add_check),
         ));
   }
 }

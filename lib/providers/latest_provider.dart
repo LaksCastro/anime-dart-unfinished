@@ -19,8 +19,10 @@ class LatestProvider {
               imageUrl: resourceData.imageUrl,
               label: resourceData.label,
               id: resourceData.id,
+              linkId: resourceData.linkId,
               link: (_) => WatchEpisode(
                   args: WatchEpisodeArgs(
+                      animeId: resourceData.linkId,
                       episodeId: resourceData.id,
                       imageUrl: resourceData.imageUrl,
                       label: resourceData.label))),

@@ -99,6 +99,21 @@ mixin _$WatchEpisodeController on _WatchEpisodeControllerBase, Store {
     });
   }
 
+  final _$animeIdAtom = Atom(name: '_WatchEpisodeControllerBase.animeId');
+
+  @override
+  String get animeId {
+    _$animeIdAtom.reportRead();
+    return super.animeId;
+  }
+
+  @override
+  set animeId(String value) {
+    _$animeIdAtom.reportWrite(value, super.animeId, () {
+      super.animeId = value;
+    });
+  }
+
   final _$loadVideoUrlAsyncAction =
       AsyncAction('_WatchEpisodeControllerBase.loadVideoUrl');
 
@@ -114,14 +129,16 @@ mixin _$WatchEpisodeController on _WatchEpisodeControllerBase, Store {
   dynamic setEpisodeInfo(
       {@required String labelValue,
       @required String imageUrlValue,
-      @required String episodeIdValue}) {
+      @required String episodeIdValue,
+      @required String animeIdValue}) {
     final _$actionInfo = _$_WatchEpisodeControllerBaseActionController
         .startAction(name: '_WatchEpisodeControllerBase.setEpisodeInfo');
     try {
       return super.setEpisodeInfo(
           labelValue: labelValue,
           imageUrlValue: imageUrlValue,
-          episodeIdValue: episodeIdValue);
+          episodeIdValue: episodeIdValue,
+          animeIdValue: animeIdValue);
     } finally {
       _$_WatchEpisodeControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -146,6 +163,7 @@ imageUrl: ${imageUrl},
 episodeId: ${episodeId},
 videoUrlHd: ${videoUrlHd},
 videoUrl: ${videoUrl},
+animeId: ${animeId},
 episodeInfoLoaded: ${episodeInfoLoaded},
 loadingVideoUrl: ${loadingVideoUrl}
     ''';

@@ -9,6 +9,7 @@ class Resource extends ResourceData {
       {String imageUrl,
       @required String label,
       @required String id,
+      String linkId,
       @required this.link})
-      : super(imageUrl: imageUrl, label: label, id: id);
+      : super(imageUrl: imageUrl, label: label, id: id, linkId: linkId);
 }

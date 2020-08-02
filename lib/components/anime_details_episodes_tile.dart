@@ -19,8 +19,10 @@ class AnimeDetailsEpisodesTile extends StatelessWidget {
             padding: EdgeInsets.all(20),
             child: Row(children: [
               Icon(Icons.play_arrow),
-              Container(
-                  margin: EdgeInsets.only(left: 10), child: Text(episode.label))
+              Flexible(
+                  child: Container(
+                      margin: EdgeInsets.only(left: 10),
+                      child: Text(episode.label))),
             ])));
   }
 }

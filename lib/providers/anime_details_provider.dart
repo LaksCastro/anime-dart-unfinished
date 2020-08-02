@@ -24,6 +24,7 @@ class AnimeDetailsProvider {
             label: animeEpisodeData.label,
             link: (_) => WatchEpisode(
                   args: WatchEpisodeArgs(
+                      animeId: animeEpisodeData.animeId,
                       episodeId: animeEpisodeData.id,
                       label: animeEpisodeData.label,
                       imageUrl: animeDetailsData.imageUrl),

@@ -25,6 +25,7 @@ class AnimeDetailsEpisodes extends StatelessWidget {
         child: Column(children: items)));
 
     return Container(
+      margin: EdgeInsets.only(bottom: 60),
       child: Column(
         children: body,
       ),

@@ -26,7 +26,8 @@ class AnimeTvApi {
       resources.add(ResourceData(
           imageUrl: "$_imageBaseUrl${element["category_image"]}",
           label: element["title"],
-          id: element["video_id"]));
+          id: element["video_id"],
+          linkId: element["category_id"]));
     }
 
     return resources;

@@ -7,3 +7,4 @@ export './anime_details_args.dart';
 export "./anime_details.dart";
 export "./anime_details_data.dart";
 export "./episode_info.dart";
+export "./episode_info_data.dart";

@@ -90,17 +90,17 @@ class AnimeTvApi {
     return animeDetails;
   }
 
-  Future<List<EpisodeInfo>> episodesOf(String animeId) async {
+  Future<List<EpisodeInfoData>> episodesOf(String animeId) async {
     final endpoint = "$_baseUrl?cat_id=$animeId";
 
     final response = await http.get(endpoint, headers: AnimeTvApi.httpHeaders);
 
     final data = json.decode(response.body.substring(3));
 
-    List<EpisodeInfo> episodes = [];
+    List<EpisodeInfoData> episodes = [];
 
     for (final episode in data) {
-      episodes.add(EpisodeInfo(
+      episodes.add(EpisodeInfoData(
           animeId: episode["category_id"],
           id: episode["video_id"],
           label: episode["title"]));

@@ -35,44 +35,35 @@ class _AnimeDetailsState extends State<AnimeDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Observer(builder: (_) {
-      if (animeDetailsController.loading) {
-        return Text(args.title);
-      }
+    return Scaffold(
+        appBar: AppBar(title: Observer(builder: (_) {
+          if (animeDetailsController.loading) {
+            return Text(args.title);
+          }
 
-      return Text(animeDetailsController.details.title);
-    })), body: Observer(builder: (_) {
-      if (animeDetailsController.loading) {
-        return Center(child: CircularProgressIndicator());
-      }
+          return Text(animeDetailsController.details.title);
+        })),
+        body: Observer(builder: (_) {
+          if (animeDetailsController.loading) {
+            return Center(child: CircularProgressIndicator());
+          }
 
-      List<Widget> items = [];
+          List<Widget> body = [];
 
-      for (final episode in animeDetailsController.details.episodes) {
-        items.add(GestureDetector(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: episode.link));
-            },
+          body.add(AnimeDetailsHeader(details: animeDetailsController.details));
+          body.add(AnimeDetailsEpisodes(
+              episodes: animeDetailsController.details.episodes));
+
+          return SingleChildScrollView(
             child: Container(
-                alignment: Alignment.centerLeft,
-                color: Colors.black.withOpacity(0.1),
-                margin: EdgeInsets.symmetric(vertical: 5),
-                padding: EdgeInsets.all(20),
-                child: Text(episode.label))));
-      }
-
-      List<Widget> body = [];
-
-      body.add(AnimeDetailsHeader());
-      body.add(AnimeDetailsEpisodes(
-          episodes: animeDetailsController.details.episodes));
-
-      return SingleChildScrollView(
-        child: Container(
-            child: Column(
-          children: body,
-        )),
-      );
-    }));
+                child: Column(
+              children: body,
+            )),
+          );
+        }),
+        floatingActionButton: FloatingActionButton(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            onPressed: () {},
+            child: Icon(Icons.favorite, color: Colors.red[700])));
   }
 }

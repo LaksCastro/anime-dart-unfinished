@@ -13,16 +13,9 @@ class AnimeDetailsEpisodes extends StatelessWidget {
     List<Widget> items = [];
 
     for (final episode in episodes) {
-      items.add(GestureDetector(
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: episode.link));
-          },
-          child: Container(
-              alignment: Alignment.centerLeft,
-              color: Colors.black.withOpacity(0.1),
-              margin: EdgeInsets.symmetric(vertical: 5),
-              padding: EdgeInsets.all(20),
-              child: Text(episode.label))));
+      items.add(AnimeDetailsEpisodesTile(
+        episode: episode,
+      ));
     }
 
     List<Widget> body = [];

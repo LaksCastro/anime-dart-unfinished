@@ -13,8 +13,14 @@ class AnimeDetailsEpisodesTile extends StatelessWidget {
           Navigator.push(context, MaterialPageRoute(builder: episode.link));
         },
         child: Container(
+            alignment: Alignment.centerLeft,
             color: Colors.black.withOpacity(0.1),
+            margin: EdgeInsets.symmetric(vertical: 5),
             padding: EdgeInsets.all(20),
-            child: Row(children: [Flexible(child: Text(episode.label))])));
+            child: Row(children: [
+              Icon(Icons.play_arrow),
+              Container(
+                  margin: EdgeInsets.only(left: 10), child: Text(episode.label))
+            ])));
   }
 }

@@ -1,6 +1,7 @@
 import 'package:anime_dart/get_it.dart';
 import 'package:anime_dart/models/anime_details_args.dart';
 import 'package:anime_dart/screens/anime_details.dart';
+import 'package:anime_dart/store/anime_details_controller.dart';
 import 'package:anime_dart/store/watch_episode_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,7 @@ class WatchEpisode extends StatefulWidget {
 class _WatchEpisodeState extends State<WatchEpisode> {
   final WatchEpisodeArgs args;
   final watchEpisodeController = getIt<WatchEpisodeController>();
+  final animeDetailsController = getIt<AnimeDetailsController>();
 
   _WatchEpisodeState({this.args});
 
@@ -38,6 +40,7 @@ class _WatchEpisodeState extends State<WatchEpisode> {
     watchEpisodeController.loadVideoUrl();
   }
 
+  @override
   dispose() {
     print("A Watch Episode Page foi desmontada");
 
@@ -82,6 +85,10 @@ class _WatchEpisodeState extends State<WatchEpisode> {
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
+            if (animeDetailsController.details?.id ==
+                watchEpisodeController.animeId) {
+              return Navigator.pop(context);
+            }
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(

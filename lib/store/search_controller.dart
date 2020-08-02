@@ -13,13 +13,16 @@ abstract class _SearchControllerBase with Store {
   String text = "";
 
   @observable
-  ObservableList<Resource> results = ObservableList<Resource>.of([]);
+  var results = ObservableList<Resource>.of([]);
+
+  @observable
+  bool notFound;
 
   @computed
   bool get waitingType => text == "";
 
   @computed
-  bool get notFound => text != "" && results.length == 0;
+  bool get loading => text != "" && notFound == null;
 
   @action
   setText(value) {
@@ -30,10 +33,20 @@ abstract class _SearchControllerBase with Store {
   loadResults() async {
     final keyword = _provider.getKeyword(text);
 
+    notFound = null;
+
     final searchedResources = await _provider.searchByKeyword(keyword);
 
+    if (searchedResources.length == 0) {
+      return runInAction(() {
+        notFound = true;
+        results = ObservableList<Resource>.of([]);
+      });
+    }
+
     runInAction(() {
-      results.addAll(ObservableList<Resource>.of(searchedResources));
+      results = ObservableList<Resource>.of(searchedResources);
+      notFound = false;
     });
   }
 }

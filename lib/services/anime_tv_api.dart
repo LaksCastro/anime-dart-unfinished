@@ -48,25 +48,26 @@ class AnimeTvApi {
     return videoData;
   }
 
-  Future<List<ResourceData>> searchByKeyword(String keyword){
+  Future<List<ResourceData>> searchByKeyword(String keyword) async {
     try {
-       
-    final response =
-        await http.get("$_baseUrl?search=$keyword", headers: AnimeTvApi.httpHeaders);
+      final endpoint = "$_baseUrl?search=$keyword";
 
-    final data = json.decode(response.body.substring(3)) as List;
+      final response =
+          await http.get(endpoint, headers: AnimeTvApi.httpHeaders);
 
-    List<ResourceData> resources = [];
+      final data = json.decode(response.body.substring(3)) as List;
 
-    for (final element in data) {
-      resources.add(ResourceData(
-          imageUrl: "$_imageBaseUrl${element["category_image"]}",
-          label: element["category_name"],
-          id: element["id"]));
-    }
+      List<ResourceData> resources = [];
 
-    return resources;
-    } catch(e){
+      for (final element in data) {
+        resources.add(ResourceData(
+            imageUrl: "$_imageBaseUrl${element["category_image"]}",
+            label: element["category_name"],
+            id: element["id"]));
+      }
+
+      return resources;
+    } catch (e) {
       return [];
     }
   }

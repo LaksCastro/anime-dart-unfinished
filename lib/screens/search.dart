@@ -1,6 +1,9 @@
 import 'dart:async';
 
+import 'package:anime_dart/components/barrel.dart';
+import 'package:anime_dart/store/barrel.dart';
 import "package:flutter/material.dart";
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 class Search extends StatefulWidget {
   @override
@@ -10,12 +13,22 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   final _searchQuery = TextEditingController();
   Timer _debounce;
+  final _searchController = SearchController();
 
   _onSearchChanged() {
-    if (_debounce?.isActive ?? false) _debounce.cancel();
+    if (_debounce?.isActive ?? false) {
+      _debounce.cancel();
+    }
+
     _debounce = Timer(const Duration(milliseconds: 500), () {
-      final query = _searchQuery.text.replaceAll(" ", "_");
-      print(query);
+      final text = _searchQuery.text;
+
+      if (text == _searchController.text) {
+        return;
+      }
+
+      _searchController.setText(text);
+      _searchController.loadResults();
     });
   }
 
@@ -45,6 +58,32 @@ class _SearchState extends State<Search> {
                 decoration: InputDecoration.collapsed(
                     hintText: 'Digite uma palavra chave'),
                 controller: _searchQuery)),
-        body: Text("hm"));
+        body: Observer(
+          builder: (_) {
+            if (_searchController.waitingType) {
+              return Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.all(20),
+                  child: Text("Digite o nome de um anime para procurar..."));
+            }
+
+            if (_searchController.loading) {
+              return Center(child: CircularProgressIndicator());
+            }
+
+            if (_searchController.notFound) {
+              return Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.all(20),
+                  child: Text(
+                      "Anime não encontrado, tente outra palavra chave..."));
+            }
+
+            return ResourceList(
+                resources: _searchController.results,
+                cardLabel: "RESULTADOS",
+                onRefresh: _searchController.loadResults);
+          },
+        ));
   }
 }

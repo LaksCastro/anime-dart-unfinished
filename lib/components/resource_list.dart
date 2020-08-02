@@ -17,6 +17,7 @@ class ResourceList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
+        color: Theme.of(context).textTheme.bodyText1.color,
         onRefresh: this.onRefresh,
         child: ListView.builder(
             padding: EdgeInsets.symmetric(vertical: 20, horizontal: 0),

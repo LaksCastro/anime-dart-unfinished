@@ -18,9 +18,9 @@ class _LatestState extends State<Latest> {
 
   @override
   void initState() {
-    _latestController.loadEpisodes();
-
     super.initState();
+
+    _latestController.loadEpisodes();
   }
 
   @override

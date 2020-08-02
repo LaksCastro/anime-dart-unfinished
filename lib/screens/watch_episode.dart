@@ -24,7 +24,11 @@ class _WatchEpisodeState extends State<WatchEpisode> {
   _WatchEpisodeState({this.args});
 
   @override
-  void initState() {
+  initState() {
+    super.initState();
+
+    print("A Watch Episode Page foi criada");
+
     watchEpisodeController.setEpisodeInfo(
         animeIdValue: args.animeId,
         labelValue: args.label,
@@ -32,11 +36,11 @@ class _WatchEpisodeState extends State<WatchEpisode> {
         episodeIdValue: args.episodeId);
 
     watchEpisodeController.loadVideoUrl();
-
-    super.initState();
   }
 
-  void dispose() {
+  dispose() {
+    print("A Watch Episode Page foi desmontada");
+
     watchEpisodeController.dispose();
 
     super.dispose();
@@ -78,7 +82,7 @@ class _WatchEpisodeState extends State<WatchEpisode> {
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            Navigator.push(
+            Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                     builder: (_) => AnimeDetails(

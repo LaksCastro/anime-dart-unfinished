@@ -47,7 +47,7 @@ class _PlayerState extends State<Player> {
   }
 
   @override
-  void initState() {
+  initState() {
     super.initState();
 
     _videoPlayerController = VideoPlayerController.network(url);
@@ -56,7 +56,7 @@ class _PlayerState extends State<Player> {
   }
 
   @override
-  void dispose() {
+  dispose() {
     _videoPlayerController?.dispose();
     _chewieController?.dispose();
 

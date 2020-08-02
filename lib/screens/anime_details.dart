@@ -25,11 +25,16 @@ class _AnimeDetailsState extends State<AnimeDetails> {
   void initState() {
     super.initState();
 
+    print("A AnimeDetails Page foi criada");
+
     animeDetailsController.loadDetails(args.animeId);
   }
 
   void dispose() {
     animeDetailsController.dispose();
+
+    print("A AnimeDetails Page foi desmontada");
+
     super.dispose();
   }
 

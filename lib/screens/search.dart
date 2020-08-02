@@ -34,13 +34,13 @@ class _SearchState extends State<Search> {
   }
 
   @override
-  void initState() {
+  initState() {
     super.initState();
     _searchQuery.addListener(_onSearchChanged);
   }
 
   @override
-  void dispose() {
+  dispose() {
     _searchQuery.removeListener(_onSearchChanged);
     _searchQuery.dispose();
     _debounce.cancel();

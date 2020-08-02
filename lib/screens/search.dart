@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:anime_dart/components/barrel.dart';
+import 'package:anime_dart/get_it.dart';
 import 'package:anime_dart/store/barrel.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -11,9 +12,9 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
+  final _searchController = getIt<SearchController>();
   final _searchQuery = TextEditingController();
   Timer _debounce;
-  final _searchController = SearchController();
 
   _onSearchChanged() {
     if (_debounce?.isActive ?? false) {

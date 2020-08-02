@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class EpisodeInfo extends StatefulWidget {
+class WatchEpisodeHeader extends StatefulWidget {
   @override
-  _EpisodeInfoState createState() => _EpisodeInfoState();
+  _WatchEpisodeHeader createState() => _WatchEpisodeHeader();
 }
 
-class _EpisodeInfoState extends State<EpisodeInfo> {
+class _WatchEpisodeHeader extends State<WatchEpisodeHeader> {
   final watchEpisodeController = getIt<WatchEpisodeController>();
 
   @override

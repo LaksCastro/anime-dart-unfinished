@@ -16,13 +16,6 @@ class AppTheme {
           primary: AppTheme.primaryColor, secondary: AppTheme.accentColor));
 }
 
-// fontFamily: "Raleway"
 class AppDarkTheme {
-  static final ThemeData data = ThemeData.dark().copyWith(
-      primaryColor: AppTheme.primaryColor,
-      accentColor: AppTheme.accentColor,
-      secondaryHeaderColor: AppTheme.secondaryHeaderColor,
-      visualDensity: AppTheme.visualDensity,
-      colorScheme: ColorScheme.dark().copyWith(
-          primary: AppTheme.primaryColor, secondary: AppTheme.accentColor));
+  static final ThemeData data = ThemeData.dark();
 }

@@ -79,7 +79,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-            foregroundColor: Colors.white,
             onPressed: () {
               Navigator.push(
                   context, MaterialPageRoute(builder: (_) => Search()));

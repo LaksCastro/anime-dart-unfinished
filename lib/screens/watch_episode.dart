@@ -50,7 +50,7 @@ class _WatchEpisodeState extends State<WatchEpisode> {
             child: IntrinsicHeight(
               child: Column(
                 children: [
-                  EpisodeInfo(),
+                  WatchEpisodeHeader(),
                   WatchButtons(),
                 ],
               ),

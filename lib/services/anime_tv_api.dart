@@ -71,4 +71,41 @@ class AnimeTvApi {
       return [];
     }
   }
+
+  Future<AnimeDetailsData> detailsOf(String animeId) async {
+    final endpoint = "$_baseUrl?info=$animeId";
+
+    final response = await http.get(endpoint, headers: AnimeTvApi.httpHeaders);
+
+    final data = json.decode(response.body.substring(3))[0];
+
+    final animeDetails = AnimeDetailsData(
+        id: data["id"],
+        description: data["category_description"],
+        genres: data["category_genres"],
+        imageUrl: "$_imageBaseUrl${data["category_image"]}",
+        title: data["category_name"],
+        year: data["ano"]);
+
+    return animeDetails;
+  }
+
+  Future<List<EpisodeInfo>> episodesOf(String animeId) async {
+    final endpoint = "$_baseUrl?cat_id=$animeId";
+
+    final response = await http.get(endpoint, headers: AnimeTvApi.httpHeaders);
+
+    final data = json.decode(response.body.substring(3));
+
+    List<EpisodeInfo> episodes = [];
+
+    for (final episode in data) {
+      episodes.add(EpisodeInfo(
+          animeId: episode["category_id"],
+          id: episode["video_id"],
+          label: episode["title"]));
+    }
+
+    return episodes;
+  }
 }

@@ -3,3 +3,7 @@ export "./resource_data.dart";
 export "./watch_episode_args.dart";
 export "./video_data.dart";
 export "./video_resource.dart";
+export './anime_details_args.dart';
+export "./anime_details.dart";
+export "./anime_details_data.dart";
+export "./episode_info.dart";

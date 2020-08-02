@@ -21,7 +21,7 @@ class _WatchButtonsState extends State<WatchButtons> {
       child: Observer(builder: (_) {
         if (watchEpisodeController.loadingVideoUrl) {
           return Container(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(vertical: 60, horizontal: 20),
               child: Center(child: CircularProgressIndicator()));
         }
 

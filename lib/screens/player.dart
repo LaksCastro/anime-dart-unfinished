@@ -6,44 +6,33 @@ import 'package:video_player/video_player.dart';
 
 class Player extends StatefulWidget {
   final String url;
+  final Orientation enterOrientation;
 
-  Player({this.url});
+  Player({@required this.url, @required this.enterOrientation});
 
   @override
   State<StatefulWidget> createState() {
-    return _PlayerState(url: url);
+    return _PlayerState(url: url, enterOrientation: enterOrientation);
   }
 }
 
 class _PlayerState extends State<Player> {
   VideoPlayerController _videoPlayerController;
   ChewieController _chewieController;
+  Orientation enterOrientation;
+
   final String url;
 
-  _PlayerState({this.url});
+  _PlayerState({this.url, this.enterOrientation});
 
   initializePlayerController() async {
     await _videoPlayerController.initialize();
     await _videoPlayerController.play();
+
     await SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+
     await SystemChrome.setPreferredOrientations(
         [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
-
-    setState(() {
-      _chewieController = ChewieController(
-        videoPlayerController: _videoPlayerController,
-        autoPlay: true,
-        aspectRatio: _videoPlayerController.value.aspectRatio,
-        allowedScreenSleep: false,
-        allowFullScreen: true,
-        fullScreenByDefault: true,
-        placeholder: Container(
-          color: Colors.black,
-        ),
-        autoInitialize: true,
-      );
-      _chewieController.enterFullScreen();
-    });
   }
 
   @override
@@ -81,7 +70,7 @@ class _PlayerState extends State<Player> {
             ? Center(child: CircularProgressIndicator())
             : (Container(
                 child: Column(
-                children: <Widget>[
+                children: [
                   Expanded(
                     child: Center(
                       child: Chewie(

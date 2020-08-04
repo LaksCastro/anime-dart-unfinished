@@ -8,16 +8,10 @@ Apesar de estar com um código horrível, algumas features ainda estão funciona
 <table>
   <thead>
     <th>
-      <img src="/assets/d-home.jpeg">
+      <img src="/assets/d-home.jpeg" width="80">
     </th>
     <th>
-      <img src="/assets/d-episodes.jpeg">
-    </th>
-    <th>
-      <img src="/assets/d-search.jpeg">
-    </th>
-    <th>
-      <img src="/assets/d-search-ep.jpeg">
+      <img src="/assets/d-episodes.jpeg" width="80">
     </th>
   </thead>
   <tbody>
@@ -27,6 +21,19 @@ Apesar de estar com um código horrível, algumas features ainda estão funciona
     <td>
       Listagem de episódios
     </td>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <th>
+      <img src="/assets/d-search.jpeg" width="80">
+    </th>
+    <th>
+      <img src="/assets/d-search-ep.jpeg" width="80">
+    </th>
+  </thead>
+  <tbody>
     <td>
       Página de buscar animes
     </td>

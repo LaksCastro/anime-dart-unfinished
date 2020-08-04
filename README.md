@@ -8,10 +8,10 @@ Apesar de estar com um código horrível, algumas features ainda estão funciona
 <table>
   <thead>
     <th>
-      <img src="/assets/d-home.jpeg" width="80">
+      <img src="/assets/d-home.jpeg" width="150">
     </th>
     <th>
-      <img src="/assets/d-episodes.jpeg" width="80">
+      <img src="/assets/d-episodes.jpeg" width="150">
     </th>
   </thead>
   <tbody>
@@ -27,10 +27,10 @@ Apesar de estar com um código horrível, algumas features ainda estão funciona
 <table>
   <thead>
     <th>
-      <img src="/assets/d-search.jpeg" width="80">
+      <img src="/assets/d-search.jpeg" width="150">
     </th>
     <th>
-      <img src="/assets/d-search-ep.jpeg" width="80">
+      <img src="/assets/d-search-ep.jpeg" width="150">
     </th>
   </thead>
   <tbody>
@@ -46,10 +46,10 @@ Apesar de estar com um código horrível, algumas features ainda estão funciona
 <table>
   <thead>
     <th>
-      <img src="/assets/d-search-with-results.jpeg" width="80">
+      <img src="/assets/d-search-with-results.jpeg" width="150">
     </th>
     <th>
-      <img src="/assets/d-watch.jpeg" width="80">
+      <img src="/assets/d-watch.jpeg" width="150">
     </th>
   </thead>
   <tbody>
@@ -66,10 +66,10 @@ Apesar de estar com um código horrível, algumas features ainda estão funciona
 <table>
   <thead>
     <th>
-      <img src="/assets/l-home.jpeg" width="80">
+      <img src="/assets/l-home.jpeg" width="150">
     </th>
     <th>
-      <img src="/assets/l-episodes.jpeg" width="80">
+      <img src="/assets/l-episodes.jpeg" width="150">
     </th>
   </thead>
   <tbody>
@@ -85,10 +85,10 @@ Apesar de estar com um código horrível, algumas features ainda estão funciona
 <table>
   <thead>
     <th>
-      <img src="/assets/l-search.jpeg" width="80">
+      <img src="/assets/l-search.jpeg" width="150">
     </th>
     <th>
-      <img src="/assets/l-search-ep.jpeg" width="80">
+      <img src="/assets/l-search-ep.jpeg" width="150">
     </th>
   </thead>
   <tbody>
@@ -104,10 +104,10 @@ Apesar de estar com um código horrível, algumas features ainda estão funciona
 <table>
   <thead>
     <th>
-      <img src="/assets/l-search-with-results.jpeg" width="80">
+      <img src="/assets/l-search-with-results.jpeg" width="150">
     </th>
     <th>
-      <img src="/assets/l-watch.jpeg" width="80">
+      <img src="/assets/l-watch.jpeg" width="150">
     </th>
   </thead>
   <tbody>
